@@ -15,8 +15,12 @@ Including another URLconf
     2. Add a URL to urlpatterns:  path('blog/', include('blog.urls'))
 """
 from django.contrib import admin
+from django.contrib.auth.models import User
 from django.urls import path, include
 from tasks import views
+from rest_framework import serializers
+    
+
 
 
 urlpatterns = [
@@ -25,5 +29,8 @@ urlpatterns = [
     path('acceso/', views.acceso, name='acceso'),
     path('cerrar_sesion/', views.cerrar_sesion, name='cerrar_ sesion'),
     path('home/', views.home, name='home'),
+    path('tasks/', include('tasks.urls')),
+    path('api-auth/', include('rest_framework.urls', namespace='rest_framework')
+         )
 
 ]

@@ -4,6 +4,9 @@ from django.contrib.auth.models import User
 from django.contrib.auth import login as auth_login, authenticate
 from django.contrib.auth import authenticate
 from django.contrib.auth import logout
+from rest_framework import viewsets
+from .serializer import TaskSerializer
+from .models import Tasks
 
 
 # from django.http import HttpResponse
@@ -65,3 +68,7 @@ def acceso(request):
 def cerrar_sesion(request):
     logout(request)
     return redirect('acceso')
+
+class TaskView(viewsets.ModelViewSet):
+    serializer_class = TaskSerializer
+    queryset = Tasks.objects.all()        
