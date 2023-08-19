@@ -18,9 +18,9 @@ def home(request):
     })
 
 
-def registrarse(request):
+def signup(request):
     if request.method == 'GET':
-        return render(request, 'registrarse.html', {
+        return render(request, 'signup.html', {
             'form': UserCreationForm
         })
     else:
@@ -32,23 +32,23 @@ def registrarse(request):
                     ['password1'])
                 user.save()
                 auth_login(request, user)
-                return redirect(acceso)
+                return redirect(login)
 
             except:
-                return render(request, 'registrarse.html', {
+                return render(request, 'signup.html', {
                     'form': UserCreationForm,
-                    "error": 'Ha ocurrido un error al crear el usuario'
+                    "error": 'An error occurred while creating the user.'
                 })
         else:
-            return render(request, 'registrarse.html', {
+            return render(request, 'signup.html', {
                 "form": UserCreationForm,
-                "error": 'Las contraseñas no coinciden'
+                "error": 'The passwords do not match'
             })
 
 
-def acceso(request):
+def login(request):
     if request.method == 'GET':
-        return render(request, 'acceso.html', {
+        return render(request, 'login.html', {
             'form': AuthenticationForm
         })
     else:
@@ -56,19 +56,19 @@ def acceso(request):
             request, username=request.POST['username'], password=request.POST
             ['password'])
         if user is None:
-            return render(request, 'acceso.html', {
+            return render(request, 'login.html', {
                 'form': AuthenticationForm,
-                'error': 'usuario o contraseña incorrecto'
+                'error': 'Invalid username or password'
             })
         else:
             auth_login(request,user)
             return redirect('home')
 
 
-def cerrar_sesion(request):
+def sign_out(request):
     logout(request)
-    return redirect('acceso')
+    return redirect('login')
 
 class TaskView(viewsets.ModelViewSet):
     serializer_class = TaskSerializer
-    queryset = Tasks.objects.all()        
+    queryset = Tasks.objects.all()     

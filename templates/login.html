@@ -3,18 +3,16 @@
 
 {% block content %}
 
-<h1>registrase</h1>
-
+<h1>Log in</h1>
 {{error}}
 
-<form action="/registrarse/" method="post">
+
+
+<form action="/access/" method="post">
     {% csrf_token %}
     {{form.as_p}}
     <button>
-        registrase
+        Log in
     </button>
-
 </form>
-
-
  {% endblock %}

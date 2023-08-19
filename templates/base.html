@@ -18,19 +18,19 @@
 
 
             <li>
-                <a href="/acceso/""> acceso</a>
+                <a href="/login/""> login</a>
                 </li>
             {% if user.is_authenticated%}
             <li>
-                <a href=" /cerrar_sesion/""> logout</a>
+                <a href=" /log_out/""> logout</a>
             </li>
             {% else %}
             <li>
-                <a href=" /registrarse/">registrase</a>
+                <a href=" /signup/">/signup/</a>
 
             </li>
             <li>
-                <a href=" /home/">registrase</a>
+                <a href=" /home/">/signup/</a>
 
             </li>
             {% endif %}
