@@ -30,7 +30,6 @@ urlpatterns = [
     path('sign_out/', views.sign_out, name='sign_out'),
     path('home/', views.home, name='home'),
     path('tasks/', include('tasks.urls')),
-    path('api-auth/', include('rest_framework.urls', namespace='rest_framework')
-         )
+    path('api-auth/', include('rest_framework.urls', namespace='rest_framework'))
 
 ]

@@ -91,9 +91,9 @@ WSGI_APPLICATION = 'djangocrud.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.mysql',
-        'NAME': 'Pruevas',
+        'NAME': 'Pruebas',
         'USER': 'root',
-        'PASSWORD': 'Banesa12',
+        'PASSWORD': '123456a',
         'HOST': 'localhost',
         'PORT': '3306'
     }
